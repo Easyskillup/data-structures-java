@@ -1,4 +1,4 @@
-package org.example.linked_lists;
+package org.example.linked_lists.stack;
 
 public class Node {
     int data;

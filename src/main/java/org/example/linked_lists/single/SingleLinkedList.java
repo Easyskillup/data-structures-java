@@ -1,4 +1,4 @@
-package org.example.linked_lists;
+package org.example.linked_lists.single;
 
 public class SingleLinkedList {
     // represents the first element of the LinkedList
