@@ -74,3 +74,7 @@ Main operations:
 - `enqeue()`
 - `dequeue()`
 - `peek()`
+
+### Hash based DS
+
+Uses a hash function to convert a key into an index of an array, allows fast access, insertions, deletions
