@@ -9,11 +9,11 @@ public class QueueTest {
         q.enqueue(40);
         q.enqueue(50);
         q.print();
-        System.out.println(q.peek());
-        System.out.println(q.dequeue());
-        System.out.println(q.dequeue());
-        System.out.println(q.dequeue());
-        System.out.println(q.dequeue());
+        System.out.println("Peek: "+q.peek());
+        System.out.println("Dequeued: "+ q.dequeue());
+        System.out.println("Dequeued: "+ q.dequeue());
+        System.out.println("Dequeued: "+ q.dequeue());
+        System.out.println("Dequeued: "+ q.dequeue());
         q.print();
     }
 }

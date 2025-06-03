@@ -12,6 +12,7 @@ public class SingleLinkedList {
             return;
         }
         Node temp = head;
+        // Iterate till the end of the list
         while (temp.next != null) {
             temp = temp.next;
         }

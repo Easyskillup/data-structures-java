@@ -1,5 +1,4 @@
 package org.example.linked_lists.doubly;
-
 public class DoublyLinkedList {
     private Node head;
     private Node tail;
