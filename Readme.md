@@ -78,3 +78,28 @@ Main operations:
 ### Hash based DS
 
 Uses a hash function to convert a key into an index of an array, allows fast access, insertions, deletions
+
+## Sorting Algorithms
+
+Sorting allows us to order data in either ascending or descending manner 
+
+### Bubble Sort
+
+- Repeatedly compare adjacent elements
+- Swap them if they are in the wrong order
+- Each pass `bubbles` the largest element at the end
+- Reduce the range and repeat the process till no more comparison is needed
+
+### Selection Sort
+- Find the smallest element in the array
+
+### Quick Sort
+- Divide and conquer algorithm
+- Choose a pivot element(last element in the array)
+- Rearrange the elements such that
+  - elements smaller than pivot are placed before pivot
+  - elements greater that pivot are placed after pivot
+
+## Searching Algorithms
+
+
