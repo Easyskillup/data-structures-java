@@ -27,6 +27,7 @@ public class HashTable<K, V> {
 
     public void put(K key, V value) {
         int index = hash(key);
+        System.out.println("Key: " + key + " Value: " + value + " Index: " + index);
         Entry<K, V> newEntry = new Entry<>(key, value);
         if (table[index] == null) {
             table[index] = newEntry;
@@ -40,6 +41,7 @@ public class HashTable<K, V> {
                     current.value = value; // updating the entry value at this key
                     return;
                 }
+                // addressing collision
                 if (current.next == null) break;
                 current = current.next;
             }

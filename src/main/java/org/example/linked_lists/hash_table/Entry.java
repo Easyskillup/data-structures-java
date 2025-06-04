@@ -4,7 +4,7 @@ package org.example.linked_lists.hash_table;
 public class Entry<K, V> {
     final K key;
     V value;
-    Entry<K, V> next;
+    Entry<K, V> next; // used to address collision
 
     public Entry(K key, V value) {
         this.key = key;

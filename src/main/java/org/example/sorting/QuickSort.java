@@ -23,6 +23,8 @@ public class QuickSort {
         int pivot = arr[high];
         int i = low - 1;
 
+        System.out.println("\nPartitioning with pivot value " + pivot + " (index " + high + ")");
+        System.out.println("Initial array segment: " + Arrays.toString(Arrays.copyOfRange(arr, low, high + 1)));
         for (int j = low; j < high; j++) {
             if (arr[j] <= pivot) {
                 i++;

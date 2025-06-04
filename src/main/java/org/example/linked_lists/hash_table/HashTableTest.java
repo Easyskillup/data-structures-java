@@ -2,6 +2,10 @@ package org.example.linked_lists.hash_table;
 
 public class HashTableTest {
     public static void main(String[] args) {
+        collisionDemo();
+    }
+
+    static void tableOfCountries() {
         HashTable<String, String> countries = new HashTable<>();
 
         countries.put("India", "New Delhi");
@@ -10,10 +14,6 @@ public class HashTableTest {
         countries.put("Germany", "Berlin");
 
         countries.printTable();
-
-//        System.out.println(Math.abs("Germany".hashCode()) % 124);
-
-
     }
 
     static void collisionDemo() {
