@@ -2,7 +2,7 @@ package org.example.linked_lists.hash_table;
 
 public class HashTableTest {
     public static void main(String[] args) {
-        collisionDemo();
+       collisionDemo();
     }
 
     static void tableOfCountries() {
@@ -13,7 +13,9 @@ public class HashTableTest {
         countries.put("UK", "London");
         countries.put("Germany", "Berlin");
 
-        countries.printTable();
+        System.out.println(countries.get("India"));
+        System.out.println(countries.remove("Germany"));
+//        countries.printTable();
     }
 
     static void collisionDemo() {
@@ -26,6 +28,9 @@ public class HashTableTest {
         tableWithCollision.put(k2, "Sample Data 2");
         tableWithCollision.put(k3, "Sample Data 3");
 
+
+//        tableWithCollision.printTable();
+        System.out.println(tableWithCollision.remove(k2));
         tableWithCollision.printTable();
     }
 }

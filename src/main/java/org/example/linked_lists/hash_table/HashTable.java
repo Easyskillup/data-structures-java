@@ -1,7 +1,7 @@
 package org.example.linked_lists.hash_table;
 
 public class HashTable<K, V> {
-    private final int SIZE = 124;
+    private final int SIZE = 15;
     private Entry<K, V>[] table;
 
     public HashTable() {
@@ -47,5 +47,39 @@ public class HashTable<K, V> {
             }
             current.next = newEntry;
         }
+    }
+
+    public V get(K key) {
+        int index = hash(key);
+        Entry<K, V> current = table[index];
+        while (current != null) {
+            if (current.key.equals(key)) return current.value;
+            current = current.next;
+        }
+        return null;
+    }
+
+    public boolean remove(K key) {
+        System.out.println(key);
+        int index = hash(key);
+        Entry<K, V> current = table[index];
+        Entry<K, V> prev = null;
+        System.out.println("prev: " + (prev == null));
+        while (current != null) {
+            if (current.key.equals(key)) {
+                System.out.printf("Current.key = %s, Key = %s%n", current.key, key);
+                System.out.println("prev: " + (prev == null));
+                if (prev == null) {
+                    table[index] = current.next;
+                    System.out.println("table[index]" + table[index]);
+                } else {
+                    prev.next = current.next;
+                }
+                return true;
+            }
+            prev = current;
+            current = current.next;
+        }
+        return false;
     }
 }
