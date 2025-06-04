@@ -60,18 +60,13 @@ public class HashTable<K, V> {
     }
 
     public boolean remove(K key) {
-        System.out.println(key);
         int index = hash(key);
         Entry<K, V> current = table[index];
         Entry<K, V> prev = null;
-        System.out.println("prev: " + (prev == null));
         while (current != null) {
             if (current.key.equals(key)) {
-                System.out.printf("Current.key = %s, Key = %s%n", current.key, key);
-                System.out.println("prev: " + (prev == null));
                 if (prev == null) {
                     table[index] = current.next;
-                    System.out.println("table[index]" + table[index]);
                 } else {
                     prev.next = current.next;
                 }
