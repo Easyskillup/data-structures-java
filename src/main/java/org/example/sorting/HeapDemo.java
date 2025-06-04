@@ -41,16 +41,35 @@ public class HeapDemo {
      */
     public static void main(String[] args) {
         int[] arr = {10, 20, 5, 6, 1, 8, 9};
-        buildHeap(arr);
-        System.out.println("Heaped Array:");
+        System.out.println("Original Array:");
         print(arr);
+        heapSort(arr);
+        System.out.println("\nSorted Array:");
+        print(arr);
+    }
+
+    static void heapSort(int[] arr) {
+        int n = arr.length;
+        buildHeap(arr);
+        System.out.println("\nHeaped Array:");
+        print(arr);
+        System.out.println();
+
+        for (int i = n - 1; i >= 1; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            System.out.println("\nHeap Swapped:");
+            print(arr);
+            heapify(arr, i, 0);
+        }
     }
 
 
     static void buildHeap(int[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
-            System.out.println("\nBuilding Heap for index: " + i);
+//            System.out.println("\nBuilding Heap for index: " + i);
             heapify(arr, n, i);
         }
     }
