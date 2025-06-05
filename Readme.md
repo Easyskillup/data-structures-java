@@ -131,6 +131,18 @@ Heaps can be implemented as an array `(for an array with index i)`:
 - Parent =  `(i - 1) / 2`
 - Last leaf node = `n / 2 - 1`
 
+**Graphs**
+
+Powerful flexible, non linear data structures that can represent real workd objects or entities and their connections 
+with other objects are entities.\
+Graphs contains `Vertices or nodes` and `Edges or connections`.
+
+Use cases:
+- Social networking apps
+- Maps
+- Chat apps
+
+
 ### Hash based DS
 
 Uses a hash function to convert a key into an index of an array, allows fast access, insertions, deletions
