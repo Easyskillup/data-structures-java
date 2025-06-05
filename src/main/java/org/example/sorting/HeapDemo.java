@@ -43,8 +43,15 @@ public class HeapDemo {
         int[] arr = {10, 20, 5, 6, 1, 8, 9};
         System.out.println("Original Array:");
         print(arr);
-        heapSort(arr);
+        System.out.println();
+
+        System.out.println("Heapify array");
+        buildHeap(arr);
+        print(arr);
+        System.out.println();
+
         System.out.println("\nSorted Array:");
+        heapSort(arr);
         print(arr);
     }
 
