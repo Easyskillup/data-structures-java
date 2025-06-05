@@ -75,6 +75,22 @@ Main operations:
 - `dequeue()`
 - `peek()`
 
+### Non Linear DS
+
+**Trees**
+
+Trees are non linear, hierarchical data structures consisting of elements called nodes.
+- topmost node is called the root 
+- each node contains some data and references to the child nodes
+- non cyclic
+- we use them in file systems, browser DOM, database indexes
+
+Types:
+- Binary Trees: each node has max two child nodes
+- Binary Search Tree: same as B-Tree with Left Node < Root < Right Node
+- AVL Tree
+- Trie
+
 ### Hash based DS
 
 Uses a hash function to convert a key into an index of an array, allows fast access, insertions, deletions
