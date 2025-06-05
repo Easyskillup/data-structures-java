@@ -108,18 +108,30 @@ public class BinarySearchTree {
      * 3. Nodes with 2 child
      */
     private TreeNode deleteNode(TreeNode root, int key) {
-        if (root == null) return root;
+        if (root == null) {
+            System.out.println("Key " + key + " not found.");
+            return null;
+        }
         if (key < root.data) {
+            System.out.println("Going left from node: " + root.data);
             root.left = deleteNode(root.left, key);
         } else if (key > root.data) {
+            System.out.println("Going right from node: " + root.data);
             root.right = deleteNode(root.right, key);
         } else {
-            if (root.left == null)
+            System.out.println("Node found: " + root.data);
+            if (root.left == null) {
+                System.out.println("Node " + root.data + " has no left child, replacing it with right child");
                 return root.right;
-            else if (root.right == null)
+            } else if (root.right == null) {
+                System.out.println("Node " + root.data + " has no right child, replacing it with left child");
                 return root.left;
-
-            root.data = minValue(root.right);
+            }
+            System.out.println("Node " + root.data + " has 2 children");
+            int minValue = minValue(root.right);
+            System.out.println("In-Order successor is " + minValue);
+            root.data = minValue;
+            System.out.println("Deleting the in order successor " + minValue + " from right subtree");
             root.right = deleteNode(root.right, root.data);
         }
         return root;

@@ -8,10 +8,10 @@ public class BSTDemo {
         for (int i : arr) {
             bst.insert(i);
         }
-        bst.inorder();
-        System.out.println("Searching 30: " + bst.search(30));
+//        bst.inorder();
+//        System.out.println("Searching 30: " + bst.search(30));
         System.out.println("Deleting 30:" );
-        bst.delete(30);
+        bst.delete(50);
         bst.inorder();
     }
 }
