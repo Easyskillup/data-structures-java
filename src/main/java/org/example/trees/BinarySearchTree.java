@@ -1,7 +1,5 @@
 package org.example.trees;
 
-import java.sql.SQLOutput;
-
 /**
  * Binary Search Tree is a special Binary Tree, it maintains data in a sorted order.
  * Rules:
@@ -56,6 +54,34 @@ public class BinarySearchTree {
         }
     }
 
+    public void postOrder() {
+        System.out.println("Post order: ");
+        postOrderTraversal(root);
+        System.out.println();
+    }
+
+    private void postOrderTraversal(TreeNode root) {
+        if (root != null) {
+            inorderTraversal(root.left);
+            inorderTraversal(root.right);
+            System.out.print(root.data + " ");
+        }
+    }
+
+    public void preOrder() {
+        System.out.println("Pre order: ");
+        preOrderTraversal(root);
+        System.out.println();
+    }
+
+    private void preOrderTraversal(TreeNode root) {
+        if (root != null) {
+            System.out.print(root.data + " ");
+            inorderTraversal(root.left);
+            inorderTraversal(root.right);
+        }
+    }
+
     public boolean search(int key) {
         return searchTree(this.root, key) != null;
     }
@@ -71,16 +97,42 @@ public class BinarySearchTree {
 
     }
 
-
-    public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree();
-
-        int[] arr = {50, 30, 70, 20, 40, 60, 80};
-        for (int i : arr) {
-            bst.insert(i);
-        }
-        bst.inorder();
-        System.out.println("Searching 30: " + bst.search(30));
-        System.out.println("Searching 100: " + bst.search(100));
+    public void delete(int key) {
+        this.root = deleteNode(this.root, key);
     }
+
+    /**
+     * While deleting a node from a BST we have to handle
+     * 1. Leaf nodes
+     * 2. Nodes with one child
+     * 3. Nodes with 2 child
+     */
+    private TreeNode deleteNode(TreeNode root, int key) {
+        if (root == null) return root;
+        if (key < root.data) {
+            root.left = deleteNode(root.left, key);
+        } else if (key > root.data) {
+            root.right = deleteNode(root.right, key);
+        } else {
+            if (root.left == null)
+                return root.right;
+            else if (root.right == null)
+                return root.left;
+
+            root.data = minValue(root.right);
+            root.right = deleteNode(root.right, root.data);
+        }
+        return root;
+    }
+
+    // smallest value in the right subtree
+    private int minValue(TreeNode root) {
+        int min = root.data;
+        while (root.left != null) {
+            min = root.left.data;
+            root = root.left;
+        }
+        return min;
+    }
+
 }

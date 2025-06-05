@@ -102,6 +102,18 @@ Types:
 - AVL Tree
 - Trie
 
+**Morris Traversal**
+
+A tree traversal algorithm, allows us to traverse the B-tree without the usage of recursion or stacks. Since we are 
+not using any other structures like stack or recursions the space complexity is `O(1)`.
+
+Key thought:
+For each node
+- If the node has no left child -> visit it and go right
+- If the node has left child
+  - Find the inorder predecessor
+  - If the predecessor's right is null -> make the current node the right child of the predecessor and go left
+
 **Heap**
 
 A complete binary tree data structure which satisfies the heap property:
