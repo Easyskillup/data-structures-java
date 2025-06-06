@@ -3,6 +3,7 @@ package org.example.graphs;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class DirectedGraph {
     private final int V;
@@ -64,6 +65,30 @@ public class DirectedGraph {
         return sb.toString();
     }
 
+    /**
+     * BFS(Breadth First Search): explores the graph level by level, starts from a source node and traverses to
+     * it's neighbours before going deeper.
+     * @param start starting vertex (0 <= start <= V)
+     */
+    public void bfs(int start) {
+        boolean[] visited = new boolean[V];
+        Queue<Integer> q = new LinkedList<>();
+        visited[start] = true;
+        q.offer(start);
+        System.out.println("Traversing by BFS");
+        while (!q.isEmpty()) {
+            int node = q.poll();
+            System.out.println(node + " ");
+            for (int neighbour : adj.get(node)) {
+                if (!visited[neighbour]) {
+                    visited[neighbour] = true;
+                    q.offer(neighbour);
+                }
+            }
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         DirectedGraph g = new DirectedGraph(6, true);
 
@@ -75,6 +100,7 @@ public class DirectedGraph {
         g.addEdge(2, 5);
 
         System.out.println(g.printGraph());
+        g.bfs(0);
 
     }
 

@@ -20,8 +20,13 @@ public class SocialGraph {
         }
     }
 
-    public List<User> getFriends(User user){
+    public List<User> getFriends(User user) {
         return graph.getOrDefault(user, Collections.emptyList());
+    }
+
+    public boolean areFriends(User u1, User u2) {
+        var friendsOfU1 = graph.get(u1);
+        return friendsOfU1 != null && friendsOfU1.contains(u2);
     }
 
     public void print() {
@@ -37,11 +42,13 @@ public class SocialGraph {
     }
 
     public static void main(String[] args) {
-        User alice   = new User("u1", "Alice");
-        User bob     = new User("u2", "Bob");
-        User carol   = new User("u3", "Carol");
-        User dave    = new User("u4", "Dave");
-        User elena   = new User("u5", "Elena");
+
+        User alice = new User("u1", "Alice");
+        User bob = new User("u2", "Bob");
+        User carol = new User("u3", "Carol");
+        User dave = new User("u4", "Dave");
+        User elena = new User("u5", "Elena");
+
         SocialGraph graph = new SocialGraph();
         graph.addFriendship(alice, bob);
         graph.addFriendship(alice, carol);
@@ -50,8 +57,10 @@ public class SocialGraph {
         graph.addFriendship(dave, elena);
         graph.print();
 
-        System.out.println();
+        System.out.println("\nFriends of Alice:");
         System.out.println(graph.getFriends(alice));
+
+        System.out.println("\nAre Alice and Elena Friends?: " + graph.areFriends(alice, elena));
     }
 
 }
